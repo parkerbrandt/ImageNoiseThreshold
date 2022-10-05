@@ -9,12 +9,14 @@ Reads in the images from their locations given in a text file, then outputs if e
 To run the script, the expected format of the command is 
 
 ```
-python noise.py [input text file] [threshold*] [output text file]
+python noise.py [input text file] [threshold*] [2D or 3D] [output text file]
 ```
 
 The input text file holds the paths to all the images to check for noise.
 
 The threshold is the cutoff between a clean/not noisy image and a noisy one. We've have used 1.2 x 10^8, but 1.4 or 1.6 would work as well.
+
+2D or 3D tells the script what type of images it should be expecting.
 
 The output text file will hold the output for each image in the input text file.
 

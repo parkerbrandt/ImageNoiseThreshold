@@ -32,17 +32,21 @@ def get_files(inputfile):
 
 if __name__=="__main__":
     # Get the command-line arguments
-    # Format: 0: input file, 1: threshold, 2: output filename
+    # Format: 0: input file, 1: threshold, 2: 2D or 3D ,3: output filename
     infile = sys.argv[1]
     threshold = float(sys.argv[2])
-    outfile = sys.argv[3]
+    dim_mode = sys.argv[3]
+    outfile = sys.argv[4]
 
     files = get_files(infile)
 
     nonzero_data={}
     for file in files:
         # Load the image and count the number of non-zero values per image
-        img=io.imread(file)[:,40:,:320,:]
+        img=io.imread(file)
+        if dim_mode == '3D':
+            img = img[:,40:,:320,:]
+
         count=np.count_nonzero(img)
         nonzero_data[file]=count
 
